@@ -1,0 +1,80 @@
+.App {
+  text-align: center;
+}
+
+body{
+  margin: 0;
+  background: rgb(24, 38, 84);
+  font-family: monospace;
+  font-size: 1rem;
+}
+
+.App-header{
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 3%;
+  padding-top: 1.5%;
+}
+
+.connectwalletbutton{
+  padding: 5px 15px;  
+  font-family: monospace;
+  font-size: 1.25rem;
+}
+
+.metamask{
+  vertical-align: middle;
+  margin-left: 15px;
+}
+
+.Navbar{
+  border-bottom: 1px solid #000;
+}
+
+.footer{
+  text-align: center;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border-top: 2px solid black;
+  font-weight: normal;
+  font-size: 0.61rem;
+}
+
+
+
+.footer a{
+  font-size: larger;
+  text-decoration: none;
+  font-size: 1.25rem;
+}
+.footer h2{
+  padding-bottom: 12px;
+}
+
+.icon{
+  vertical-align: middle;
+}
+
+.footermove{
+  text-align: center;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border-top: 2px solid black;
+  font-weight: normal;
+  font-size: 0.61rem;
+  top: 895px;
+}
+
+.footermove a{
+  font-size: larger;
+  text-decoration: none;
+  font-size: 1.25rem;
+}
+.footermove h2{
+  padding-bottom: 12px;
+}
+
