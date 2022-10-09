@@ -4,6 +4,8 @@ import BetCard from './BetCard';
 import Navbar from './Navbar';
 import BasicTable from './txhistory';
 import Footer from './footer';
+import { FaEthereum } from 'react-icons/fa';
+import { FaBtc } from 'react-icons/fa';
 
 function App() {
 
@@ -37,10 +39,10 @@ function App() {
        <div className="betcard">
          <div className="pairscontainer">
            <button className={ethchosen ? "ethbutton" : "no_ethbutton"} onClick={ETHchosen}>
-             ETH
+            <FaEthereum className='faeth'/> ETH
            </button>
            <button className={!ethchosen ? "btcbutton" : "no_btcbutton"} onClick={WBTCchosen} >
-             WBTC
+            <FaBtc className='faeth'/> WBTC
            </button>
          </div>
         
@@ -58,7 +60,7 @@ function App() {
       </div>
 
       <footer>
-        {/* <Footer /> */}
+        <Footer />
       </footer>
 
     </div>

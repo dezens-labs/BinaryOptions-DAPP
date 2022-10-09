@@ -11,20 +11,21 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { ethers, utils } from 'ethers';
+import { ethers } from 'ethers';
 import BINOPTION from "../ABIs/BINOPTION.json";
 import  {useState , useEffect} from 'react'
 import Web3 from 'web3';
 import { Getprices } from './Pricefeed';
 import { FaArrowAltCircleUp, FaArrowAltCircleDown } from 'react-icons/fa';
-
+import Box from '@mui/material/Box';
+import LinearProgress from '@mui/material/LinearProgress';
 
 
 export default function BasicTable(props) {
 
   const [accountdetails, setaccountdetails] = useState({account :'', totaloptions : ''});
   const [betsinfo, setbetsinfo] = useState([]);
-  
+  const [loading, setloading] = useState(true); 
   
   useEffect(() => {
     
@@ -69,6 +70,7 @@ export default function BasicTable(props) {
     }
     console.log('betinfosarray: ', betinfosarray);
     setbetsinfo(betinfosarray);
+    setloading(false);
     console.log(betsinfo);
   }
 
@@ -161,7 +163,13 @@ export default function BasicTable(props) {
           </Table>
         </TableContainer> 
         : 
-        <h2>no positions yet</h2>
+        <h2> 
+          {loading ? 
+          <Box sx={{ width: '85.5%' }}>
+              <LinearProgress />
+          </Box> : 
+          "no positions yet"}
+        </h2>
         }
       </div>
     </>

@@ -45,9 +45,7 @@ body{
     padding-top: 7.5px;
     margin-left: 3%;
 }
-.walletbutton{
-   
-}
+
 
 .footer{
   text-align: center;
@@ -85,7 +83,7 @@ body{
   border-top: 2px solid rgb(255, 255, 255);
   font-weight: normal;
   font-size: 0.61rem;
-  top: 650px;
+  top: 950px;
 }
 
 .footermove a{
@@ -101,7 +99,7 @@ body{
 }
 
 .footermoveh2{
-  color: rgb(222, 174, 174);
+  color: rgb(214, 207, 102);
 }
 
 .txhistoryheader{
@@ -127,13 +125,18 @@ body{
   padding: 5px 10px;
   font-family: monospace;
 }
+.refreshmypositions :hover{
+  cursor: pointer;
 
+}
 .tablecontainer{
   padding: 5px 3%;
   margin:  15px auto;
   margin-top: 0;
 }
-
+.tablecontainer h2{
+  margin : 0 auto;
+}
 .tablecontainerinside{
   border: 1.5px solid whitesmoke;
 }
@@ -183,8 +186,8 @@ body{
 }
 
 .closeoption :hover{
-  background: rgb(217, 127, 127);
-  box-shadow: 1px 1px 3px rgb(206, 112, 112);
+  cursor: pointer;
+
   
 }
 .closeoption :active{
@@ -242,12 +245,27 @@ body{
 .betcardcontainer{
   max-width: 90%;
   border: 1px solid white;
-  background: rgb(146, 151, 243);
+  background: rgb(160, 162, 203);
 
 }
 
-.betcardcontainer h2{
-  margin: 0;
+.betcardcontainer h4{
+  margin: 25px;
+  font-size: 1.25rem;
+}
+
+.twitter{
+  color: rgb(0, 123, 255);
+}
+
+.hammer {
+  font-size: 1.15rem;
+  vertical-align: middle;
+  padding-bottom: 10px;
+}
+.liveprice{
+  color: black;
+  font-size: 1.25rem;
 }
 
 .ethbutton{
@@ -297,21 +315,75 @@ body{
 }
 
 .rise{
-  font-size: 1.05rem;
-
+  font-size: 1.5rem;
+  vertical-align: middle;
   font-weight: bold;
+  margin: 5px;
+
 }
 .fall{
-  font-size: 1.05rem;
-
+  font-size: 1.5rem;
+  vertical-align: middle;
   font-weight: bold;
+  margin: 5px;
 }
 .long{
   background-color: rgb(118, 232, 110);
   border: 0.5px solid black;
+  align-items: center;
+  padding-left: 15.0px;
+  margin-right: 4px;
 }
 .short{
- background-color: rgb(212, 82, 65); 
+ background-color: rgb(221, 117, 103); 
   border: 0.5px solid black;
+  align-items: center;
+  padding-left: 15.0px;
+  margin-left: 4px;
+}
+.long :active{
+  background-color: rgb(118, 232, 110);
+  border: 1.5px solid black;
+  box-shadow: -2px 2px 5px   rgb(118, 232, 110);
+}
+.short :active{
+  background-color: rgb(212, 82, 65); 
+  border: 1.5px solid black;
+  box-shadow: -2px 2px 5px  rgb(212, 82, 65);
 
+}
+.long :hover{
+
+  cursor: pointer;
+
+}
+.short :hover{
+ 
+  cursor: pointer;
+}
+
+.longorshort{
+  margin: 15px auto;
+}
+
+input{
+  width: 50px;
+  /* padding: 3px 32px; */
+  margin: 0px 5px 10px;
+  padding: 2px 5px;
+  padding-right: 23.0px;
+  padding-left: 10px;
+  font-size: 1.05rem;
+}
+
+
+label{
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.faeth{
+  vertical-align: middle;
+  margin-bottom: 2px;
 }
