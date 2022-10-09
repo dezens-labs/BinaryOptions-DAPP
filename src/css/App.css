@@ -4,7 +4,8 @@
 
 body{
   margin: 0;
-  background: rgb(24, 38, 84);
+  background: rgb(21, 28, 61);
+  color: rgb(255, 255, 255);
   font-family: monospace;
   font-size: 1rem;
 }
@@ -19,7 +20,7 @@ body{
 .connectwalletbutton{
   padding: 5px 15px;  
   font-family: monospace;
-  font-size: 1.25rem;
+  font-size: 1.05rem;
 }
 
 .metamask{
@@ -27,8 +28,25 @@ body{
   margin-left: 15px;
 }
 
+
+
+.App-header{
+    border-bottom: 1px solid rgb(255, 255, 255);    
+    padding-bottom: 10px;
+
+}
+
 .Navbar{
-  border-bottom: 1px solid #000;
+    display: flex;
+    width: 100%;
+}
+.navlinkcontainer{
+    margin-right: auto;
+    padding-top: 7.5px;
+    margin-left: 3%;
+}
+.walletbutton{
+   
 }
 
 .footer{
@@ -37,7 +55,7 @@ body{
   left: 0;
   bottom: 0;
   width: 100%;
-  border-top: 2px solid black;
+  border-top: 2px solid rgb(255, 255, 255);
   font-weight: normal;
   font-size: 0.61rem;
 }
@@ -55,6 +73,7 @@ body{
 
 .icon{
   vertical-align: middle;
+  color: whitesmoke;
 }
 
 .footermove{
@@ -63,18 +82,236 @@ body{
   left: 0;
   bottom: 0;
   width: 100%;
-  border-top: 2px solid black;
+  border-top: 2px solid rgb(255, 255, 255);
   font-weight: normal;
   font-size: 0.61rem;
-  top: 895px;
+  top: 650px;
 }
 
 .footermove a{
   font-size: larger;
   text-decoration: none;
   font-size: 1.25rem;
+  
+
 }
 .footermove h2{
   padding-bottom: 12px;
+  color: white;
 }
 
+.footermoveh2{
+  color: rgb(222, 174, 174);
+}
+
+.txhistoryheader{
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 3%;
+  margin:  5px ;
+  align-items: center;
+}
+
+.txhistoryheader h2{
+  margin-left: 10px;
+}
+
+.refreshmypositions{
+  max-height: 40px;
+  align-items: center;
+  box-shadow: 2px 2px 5px #ffffff;
+  border-radius: 5px;
+  background-color: rgb(21, 28, 61);
+  border: 1px solid white;
+  color: rgb(255, 255, 255);
+  padding: 5px 10px;
+  font-family: monospace;
+}
+
+.tablecontainer{
+  padding: 5px 3%;
+  margin:  15px auto;
+  margin-top: 0;
+}
+
+.tablecontainerinside{
+  border: 1.5px solid whitesmoke;
+}
+
+.txhistory{
+  border:  1px solid white; 
+  margin: 35px 13.0%;  
+}
+
+
+.dirlong{
+  color: rgb(9, 115, 46);
+  
+}
+
+.dirshort{
+  color: rgb(119, 20, 20);
+}
+
+.Tablerow{
+  background: rgb(206, 206, 209);
+}
+
+.rowopen{
+  background: rgb(155, 161, 190);
+}
+
+.rowwon{
+  background: rgb(163, 223, 187);
+}
+
+.rowloss{
+  background: rgb(223, 157, 165);
+}
+
+.theadcells{
+  font-weight: bold;;
+}
+
+.closeoption{
+  border-radius: 10px;
+  padding: 5px 10px;
+  box-shadow: 1px 1px 6px white;
+  background: rgb(53, 59, 89);
+  border: 1px solid rgb(59, 53, 53);
+  color: rgb(255, 255, 255);
+}
+
+.closeoption :hover{
+  background: rgb(217, 127, 127);
+  box-shadow: 1px 1px 3px rgb(206, 112, 112);
+  
+}
+.closeoption :active{
+  background: rgb(238, 177, 177);
+  box-shadow: 1px 1px 3px rgb(206, 112, 112);
+  padding: 8px 15px;
+
+}
+
+.prevsigns{
+  
+  padding: 10px;
+  padding-left: 15px;
+  font-family: monospace;
+  font-weight: normal;
+  
+  border: 1px solid rgb(20, 20, 41);
+  margin: 15px 15px;
+}
+
+/* .prevsigns::-webkit-scrollbar {
+  display: none;
+} */
+
+.TableBody::-webkit-scrollbar {
+  width: 0.43em;
+}
+ 
+.TableBody::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(226, 206, 206, 0.893);
+}
+ 
+.TableBody::-webkit-scrollbar-thumb {
+  background-color: rgb(57, 52, 52);
+  outline: 1px solid slategrey;
+}
+
+.TableBody{
+  height: 350.00px;
+  overflow: scroll;
+}
+
+.betcard{
+  max-width: 70%;
+  margin: auto;
+  width: 450px;
+  margin:  50px auto;
+}
+
+.pairscontainer{
+  max-width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+.betcardcontainer{
+  max-width: 90%;
+  border: 1px solid white;
+  background: rgb(146, 151, 243);
+
+}
+
+.betcardcontainer h2{
+  margin: 0;
+}
+
+.ethbutton{
+  background: rgb(146, 151, 243);
+  border: 1px solid white;
+  border-bottom: none;
+  color: rgb(18, 3, 30);
+  padding: 8px 30px 8px 30px;
+  box-shadow: 1px -2px 5px rgb(255, 255, 255);
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 1rem;
+}
+
+.btcbutton{
+  background: rgb(146, 151, 243);
+  border: 1px solid white;
+  border-bottom: none;
+  color: rgb(18, 3, 30);
+  padding: 8px 30px 8px 30px;
+  box-shadow: -1px -2px 5px white;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 1rem;
+
+}
+
+.no_ethbutton{
+  background: rgb(21, 28, 61);
+  border: 1px solid white;
+  border-bottom: none;
+  color: rgb(225, 215, 234);
+  padding: 8px 30px 8px 30px;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 1rem;
+}
+.no_btcbutton{
+  background: rgb(21, 28, 61);
+  border: 1px solid white;
+  border-bottom: none;
+  color: rgb(225, 215, 234);
+  padding: 8px 30px 8px 30px;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 1rem;
+}
+
+.rise{
+  font-size: 1.05rem;
+
+  font-weight: bold;
+}
+.fall{
+  font-size: 1.05rem;
+
+  font-weight: bold;
+}
+.long{
+  background-color: rgb(118, 232, 110);
+  border: 0.5px solid black;
+}
+.short{
+ background-color: rgb(212, 82, 65); 
+  border: 0.5px solid black;
+
+}

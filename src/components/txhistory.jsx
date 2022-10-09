@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable eqeqeq */
 /* eslint-disable react/prop-types */
 
 
@@ -11,9 +13,10 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { ethers, utils } from 'ethers';
 import BINOPTION from "../ABIs/BINOPTION.json";
-import {useState , useEffect} from 'react'
+import  {useState , useEffect} from 'react'
 import Web3 from 'web3';
 import { Getprices } from './Pricefeed';
+import { FaArrowAltCircleUp, FaArrowAltCircleDown } from 'react-icons/fa';
 
 
 
@@ -70,17 +73,6 @@ export default function BasicTable(props) {
   }
 
   function secondsToDhms(t) {
-    // seconds = Number(seconds);
-    // var d = Math.floor(seconds / (3600*24));
-    // var h = Math.floor(seconds % (3600*24) / 3600);
-    // var m = Math.floor(seconds % 3600 / 60);
-    // var s = Math.floor(seconds % 60);
-    
-    // var dDisplay = d > 0 ? d + (d == 1 ? " day, " : " days, ") : "";
-    // var hDisplay = h > 0 ? h + (h == 1 ? " hr, " : " hrs, ") : "";
-    // var mDisplay = m > 0 ? m + (m == 1 ? " min, " : " mins, ") : "";
-    // var sDisplay = s > 0 ? s + (s == 1 ? " sec" : " secs") : "";sDisplay
-
     var myDate = new Date( t *1000);
     let x = myDate.toLocaleString()
 
@@ -100,16 +92,22 @@ export default function BasicTable(props) {
     const BOcontractaddr = "0x201aA3679D977b77FDCFe28748eA34d48555b892";
     const BOcontract = new ethers.Contract(BOcontractaddr, BINOPTION, signer);
     console.log(id);
-    const closeoption = await BOcontract.settleOption(JSON.stringify(id));
-    console.log(closeoption);
-    let receipt = await closeoption.wait();
-    console.log('receipt: ', receipt);
-    getaccountdata();
+    try {
+      const closeoption = await BOcontract.settleOption(JSON.stringify(id));
+      console.log(closeoption);
+      let receipt = await closeoption.wait();
+      console.log('receipt: ', receipt);
+      getaccountdata();
+    } catch(error) {
+      error.code == 4001 && alert("rejected")
+      alert('action rejected by user or the option can be closed only after 90 minutes of opening');
+    }
+    
   }
 
   const statushelper = (i,r) => {
     let x = (r / 1e21).toFixed(2)
-    if(i == 2){return '+ ' + x}else if(i == 3){ return 'loss'}else{ return 'still open'}
+    if(i == 2){return '+ ' + x}else if(i == 3){ return 'loss'}else{ return '-NA-'}
   }
 
   return (
@@ -120,40 +118,44 @@ export default function BasicTable(props) {
       </div>
       <div className='tablecontainer'> 
       { betsinfo.length ?
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper} className='TableBody'>
           <Table sx={{ minWidth: 300 }} aria-label="simple table">
-            <TableHead>
-              <TableRow> 
-                <TableCell>option/no.</TableCell>
+            <TableHead >
+              <TableRow className='Tablerow'> 
+                <TableCell className='theadcells'>option/no.</TableCell>
                 <TableCell align="right">instrument</TableCell>
                 <TableCell align="right">staked ⧫</TableCell>
-                <TableCell align="right">strikeprice $</TableCell>
+                <TableCell align="right">strikedat $</TableCell>
                 <TableCell align="right">direction</TableCell>
-                <TableCell align="right">open@</TableCell>
+                <TableCell align="right">openat</TableCell>
                 <TableCell align="right">hours holded</TableCell>
                 <TableCell align="right">PnL (DAI)</TableCell>
               </TableRow>
             </TableHead>
-            <TableBody>
+            <TableBody className='TableBody'>
               {betsinfo?.map((row,i) => {
+                let y = statushelper(row.status,row.reward);
+                return(
                 <TableRow
                   key={row.optionno}
-                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                  sx={{ '&:last-child td, &:last-child th': { border: 0 } } }
+                  className={y === 'loss' ? 'rowloss' : (y === '-NA-' ? 'rowopen' : 'rowwon') }
                 >
                   <TableCell component="th" scope="row">{row.optionno}</TableCell>
                   <TableCell align="right">{!row.instrument ? 'ETH/USD' : 'BTC/USD'}</TableCell>
                   <TableCell align="right">{(row.stake * 1e-18).toFixed(4)} eth</TableCell>
                   <TableCell align="right">$ {(row.strike * 1e-8).toFixed(2)}</TableCell>
-                  <TableCell align="right">{row.direction ? "long" : "short"}</TableCell>
+                  <TableCell align="right" >
+                  {/* //{row.direction ? `long` : "short"} className={row.direction ? `dirlong` : "dirshort"}*/}
+                     {row.direction ? <FaArrowAltCircleUp className='dirlong'/> : <FaArrowAltCircleDown className='dirshort'/>}
+                  </TableCell>
                   <TableCell align="right">{secondsToDhms( row.opendedat)}</TableCell>
                   <TableCell align="right">{row.expiredat ? secondsToh(row.expiredat - row.opendedat) : 
-                        <button onClick={() => settleoption(betsinfo.length - 1 - i)}>close</button> }
+                        <button className='closeoption' onClick={() => settleoption(betsinfo.length - 1 - i)}>close</button> }
                   </TableCell>
-                  <TableCell align="right">{
-                      statushelper(row.status,row.reward)
-                  }
+                  <TableCell align="right">{y}
                   </TableCell>
-                </TableRow>
+                </TableRow>)
               })}
             </TableBody>
           </Table>

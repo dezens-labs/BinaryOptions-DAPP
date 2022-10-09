@@ -3,6 +3,7 @@ import { ethers, utils } from 'ethers';
 import React ,{useState , useEffect} from 'react'
 import BINOPTION from "../ABIs/BINOPTION.json";
 import {  Getprices  } from './Pricefeed';
+import { AiOutlineRise, AiOutlineFall } from 'react-icons/ai';
 
 const BetCard = (props) => {
   const [prices, setprices] = useState([]);
@@ -78,7 +79,7 @@ const BetCard = (props) => {
         console.log('error: ', error.code);
          alert(error.code);
          setbetinfo(prev => {
-          return {...prev,amount : ''}
+          return {...prev}
         }); 
       }
     }
@@ -89,8 +90,8 @@ const BetCard = (props) => {
   return (
     <div className="betcardcontainer">
 
-      <h2 className="liveprice"> {ETHchosen ? `ETHUSD : ${prices[0]}` : `BTCUSD : ${prices[1]}`} </h2>
-      <h3 className="user">account : { props.CurrentAccount ? `${CurrentAccount.slice(0,5)}...${CurrentAccount.slice(-4)}` : ' connect wallet'}</h3>
+      <h2 className="liveprice"> {ETHchosen ? `ETH/USD : ${prices[0]}` : `BTC/USD : ${prices[1]}`} </h2>
+      {/* <h3 className="user">account : { props.CurrentAccount ? `${CurrentAccount.slice(0,5)}...${CurrentAccount.slice(-4)}` : ' connect wallet'}</h3> */}
       <div className="betinfo">
           <form action="">
           <label htmlFor="">amount</label>
@@ -98,8 +99,8 @@ const BetCard = (props) => {
           </form>
 
           <div className="longorshort">
-            <button className="long"  onClick={() => {setbetinfo(prev => {return {...prev,longorshort : true}})}} >LONG </button>
-            <button className="short" onClick={() => {setbetinfo(prev => {return {...prev,longorshort : false}})}}>SHORT</button>
+            <button className="long"  onClick={() => {setbetinfo(prev => {return {...prev,longorshort : true}}); newoption() }} >LONG <AiOutlineRise className='rise'/></button>
+            <button className="short" onClick={() => {setbetinfo(prev => {return {...prev,longorshort : false}}); newoption()}}>SHORT <AiOutlineFall className='fall'/></button>
           </div>
       </div>
 

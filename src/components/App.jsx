@@ -1,6 +1,5 @@
 import '../css/App.css';
 import React, { useEffect, useState } from 'react';
-import {  Getprices  } from './Pricefeed';
 import BetCard from './BetCard';
 import Navbar from './Navbar';
 import BasicTable from './txhistory';
@@ -29,34 +28,37 @@ function App() {
   
 
   return (
-    <div className="App">
+    <div className="App flex-wrapper">
       <header className="App-header">
       <Navbar setCurrentAccount={setCurrentAccount} setchainnetwork={setchainnetwork} chainnetwork={chainnetwork} CurrentAccount={CurrentAccount} />
       </header>
 
       <div className="Appbody">
-        <div className="pairscontainer">
-          <button className="pairbutton" onClick={ETHchosen}>
-            ETH/DAI
-          </button>
-          <button className="pairbutton" onClick={WBTCchosen} >
-            WBTC/DAI
-          </button>
-        </div>
-
-        <div className="betcardcontainer">
-          <div className="betcard">
-              <BetCard isETHchosen = {ethchosen} CurrentAccount= {CurrentAccount} />
-          </div>
-        </div>
-
-        <div className="txhistory">
+       <div className="betcard">
+         <div className="pairscontainer">
+           <button className={ethchosen ? "ethbutton" : "no_ethbutton"} onClick={ETHchosen}>
+             ETH
+           </button>
+           <button className={!ethchosen ? "btcbutton" : "no_btcbutton"} onClick={WBTCchosen} >
+             WBTC
+           </button>
+         </div>
+        
+        
+           
+         <BetCard isETHchosen = {ethchosen} CurrentAccount= {CurrentAccount} />
+          
+       
+        
+       </div>
+       { CurrentAccount && <div className="txhistory">
           <BasicTable CurrentAccount= {CurrentAccount}/>
-        </div>
+        </div>}
 
       </div>
 
       <footer>
+        {/* <Footer /> */}
       </footer>
 
     </div>
