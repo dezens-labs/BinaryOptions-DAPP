@@ -4,7 +4,7 @@ import { ethers } from 'ethers';
 import React ,{useState , useEffect} from 'react'
 import BINOPTION from "../ABIs/BINOPTION.json";
 import {  Getprices  } from './Pricefeed';
-import { AiOutlineRise, AiOutlineFall, FaEthereum } from 'react-icons/ai';
+import { AiOutlineRise, AiOutlineFall } from 'react-icons/ai';
 
 const BetCard = (props) => {
   const [prices, setprices] = useState([]);
