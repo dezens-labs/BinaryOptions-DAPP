@@ -183,6 +183,7 @@ body{
 
 .rowwon{
   background: rgb(163, 223, 187);
+  max-height: 50px;
 }
 
 .rowloss{
@@ -243,7 +244,7 @@ body{
 }
 
 .TableBody{
-  height: 350.00px;
+  max-height: 350.00px;
   overflow: scroll;
 }
 
