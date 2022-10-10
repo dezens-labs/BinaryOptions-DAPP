@@ -100,7 +100,7 @@ body{
   border-top: 2px solid rgb(255, 255, 255);
   font-weight: normal;
   font-size: 0.61rem;
-  top: 1100px;
+  top: 1140px;
 }
 
 .footermove a{
@@ -439,4 +439,17 @@ label{
   margin-left: 20px;
   font-size: 0.85rem;
   font-weight: bold;
+}
+
+.warnings{
+  justify-content: start;
+  align-items: start;
+}
+
+
+.rewardwarn{
+  margin-left: 0;
+  padding-left: 0;
+  display: flex;
+  flex-flow: row wrap;
 }

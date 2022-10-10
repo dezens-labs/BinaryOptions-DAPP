@@ -29,7 +29,7 @@ function App() {
     
   }
 
-  
+  let width = window.innerWidth;
 
   return (
     <div className="App flex-wrapper">
@@ -65,10 +65,12 @@ function App() {
        </div>
 
       </div>
-
-      <footer>
-        <Footer />
-      </footer>
+      
+      { width > 500  && 
+        <footer>
+          <Footer />
+        </footer>
+      }
 
     </div>
   )
