@@ -43,10 +43,41 @@ const BetCard = (props) => {
      
   }
   console.log(betinfo);
+
+  const connectWallet = async () => {
+    try {
+      const { ethereum } = window;
+  
+      if (!ethereum) {
+        alert("use dapp in metamask injected browser!");
+        return;
+      }
+      
+      const accounts = await ethereum.request({ method: "eth_requestAccounts" });
+  
+      let chainId = await ethereum.request({ method: 'eth_chainId' });
+      console.log("Connected to chain " + chainId);
+    
+      const goerliChainId = "0x5"; 
+      if (chainId !== goerliChainId) {
+       console.log("You are not connected to the Goerli Test Network!");
+       props.setchainnetwork(false)
+      }else{
+        props.setchainnetwork(true)
+      }
+  
+      
+      console.log("Connected", accounts[0]);
+      props.setCurrentAccount(accounts[0]);
+    } catch (error) {
+      console.log(error);
+    }
+    
+   }
   
 
   const newoption = async () => {
-    
+    connectWallet()
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
     console.log('signer: ', signer);
@@ -81,7 +112,7 @@ const BetCard = (props) => {
         
       } catch(error) {
         console.log('error: ', error.code);
-        alert(error.code);
+        error.code !== 'UNSUPPORTED_OPERATION' && alert(error.code);
         //  setbetinfo(prev => {
         //   return {...prev}
         // }); 

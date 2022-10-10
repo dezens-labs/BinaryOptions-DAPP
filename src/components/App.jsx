@@ -50,7 +50,7 @@ function App() {
         
         
            
-         <BetCard isETHchosen = {ethchosen} CurrentAccount= {CurrentAccount} />
+         <BetCard isETHchosen = {ethchosen} CurrentAccount= {CurrentAccount} setCurrentAccount={setCurrentAccount} />
           
        
         
