@@ -1,13 +1,6 @@
-# Sample Hardhat Project
+![image](https://user-images.githubusercontent.com/92864243/194801215-7a32f783-6291-4655-89f4-fbb4d3ecc14e.png)
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
 
-Try running some of the following tasks:
+after connecting metamask
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
-```
+![image](https://user-images.githubusercontent.com/92864243/194801295-2682bb08-1131-434e-b471-327915eac528.png)
