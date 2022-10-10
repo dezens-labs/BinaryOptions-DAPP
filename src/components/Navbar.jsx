@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 // import { ethers } from 'ethers'
+import { Link } from '@mui/material'
 import React from 'react'
 
 
@@ -80,8 +81,14 @@ const Navbar = (props) => {
     
       <div className='Navbar'>
           <div className="navlinkcontainer">
-              BinaryOptions DAPP
+            <span>BinaryOptions DAPP</span> 
+
+            <div className="about" >
+              <a href="#whatisthis" className="aboutlink" onClick={(e) => {e.preventDefault(); window.location.replace('/#whatisthis');}}>About</a>
+              <a href="https://dashboard.tenderly.co/contract/goerli/0x201aa3679d977b77fdcfe28748ea34d48555b892/source" target="_blank" rel="noopener noreferrer" className='contractview'>View-Contract</a>
+            </div>
           </div>
+          
           
           <div className="walletbutton">
               <button className="connectwalletbutton" onClick={connectWallet}>

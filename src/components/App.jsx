@@ -6,12 +6,14 @@ import BasicTable from './txhistory';
 import Footer from './footer';
 import { FaEthereum } from 'react-icons/fa';
 import { FaBtc } from 'react-icons/fa';
+import About from './whatisthis';
 
 function App() {
 
   const [ethchosen, setethchosen] = useState(true);
   const [CurrentAccount, setCurrentAccount] = useState(undefined);
   const [chainnetwork, setchainnetwork] = useState(undefined);
+  const [loading, setloading] = useState(true); 
 
   useEffect(() => {
    ETHchosen();
@@ -53,9 +55,14 @@ function App() {
        
         
        </div>
-       { CurrentAccount && <div className="txhistory">
-          <BasicTable CurrentAccount= {CurrentAccount}/>
-        </div>}
+       { CurrentAccount && 
+         <div className="txhistory">
+           <BasicTable CurrentAccount= {CurrentAccount} setloading={setloading} loading={loading}/>
+         </div>
+       }
+       <div id='whatisthis'>
+         <About />
+       </div>
 
       </div>
 

@@ -44,6 +44,23 @@ body{
     margin-right: auto;
     padding-top: 7.5px;
     margin-left: 3%;
+    display: flex;
+    justify-content: flex-start;
+    width: 50%;
+}
+
+.aboutlink{
+  color: rgb(178, 177, 245);
+  text-decoration: none;
+  
+}
+.about{
+  /* margin-right: auto;*/
+  margin-left: 7%; 
+  font-size: 1rem;
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
 }
 
 
@@ -83,7 +100,7 @@ body{
   border-top: 2px solid rgb(255, 255, 255);
   font-weight: normal;
   font-size: 0.61rem;
-  top: 950px;
+  top: 1100px;
 }
 
 .footermove a{
@@ -386,4 +403,30 @@ label{
 .faeth{
   vertical-align: middle;
   margin-bottom: 2px;
+}
+
+.aboutsection{
+  margin: 15px 18.0%;
+}
+.aboutsection h5{
+  margin: 5px auto 0;
+  font-size: 1.25rem;
+  font-family: monospace;
+  font-weight: lighter;
+  color: rgb(143, 146, 243);
+}
+
+#whatisthis{
+  margin-top: 15px;
+}
+.aboutsection p{
+  font-size: 01rem;
+  font-family: monospace;
+  font-weight: lighter;
+}
+
+.contractview{
+  color:  rgb(178, 177, 245);
+  text-decoration: none;
+  margin-left: 7%;
 }

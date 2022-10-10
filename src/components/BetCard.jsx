@@ -68,9 +68,9 @@ const BetCard = (props) => {
           console.log('txn: ', txn);
           setbetinfo(prev => {return{...prev , txhash : txn.hash}});
           let receipt = await txn.wait();
-          setbetinfo(prev => {
-            return {...prev,amount : ''}
-          }); 
+          // setbetinfo(prev => {
+          //   return {...prev}
+          // }); 
           console.log('receipt: ', receipt);
         }
         
@@ -78,10 +78,10 @@ const BetCard = (props) => {
         
       } catch(error) {
         console.log('error: ', error.code);
-         alert(error.code);
-         setbetinfo(prev => {
-          return {...prev}
-        }); 
+        alert(error.code);
+        //  setbetinfo(prev => {
+        //   return {...prev}
+        // }); 
       }
     }
   }

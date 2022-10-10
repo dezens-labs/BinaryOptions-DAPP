@@ -26,7 +26,7 @@ export default function BasicTable(props) {
 
   const [accountdetails, setaccountdetails] = useState({account :'', totaloptions : ''});
   const [betsinfo, setbetsinfo] = useState([]);
-  const [loading, setloading] = useState(true); 
+  // const [loading, setloading] = useState(true); 
   
   useEffect(() => {
     
@@ -34,8 +34,12 @@ export default function BasicTable(props) {
     setaccountdetails(prev => {return { ...prev , account : props.CurrentAccount}})
   }, [props.CurrentAccount]);
 
-  const getaccountdata = async () => {
+  // useEffect(() => {
+  //   props.setloading(props.loading)
+  // }, [props.loading]);
 
+  const getaccountdata = async () => {
+    props.setloading(true)
     const provider = new ethers.providers.JsonRpcProvider(`https://rpc.ankr.com/eth_goerli`);
     const BOcontractaddr = "0x201aA3679D977b77FDCFe28748eA34d48555b892";
     const url = 'https://ethereum-goerli-rpc.allthatnode.com';
@@ -71,7 +75,7 @@ export default function BasicTable(props) {
     }
     console.log('betinfosarray: ', betinfosarray);
     setbetsinfo(betinfosarray);
-    setloading(false);
+    props.setloading(false);
     console.log(betsinfo);
   }
 
@@ -165,7 +169,7 @@ export default function BasicTable(props) {
         </TableContainer> 
         : 
         <h2> 
-          {loading ? 
+          {props.loading ? 
           <Box sx={{ width: '85.5%' }}>
               <LinearProgress />
           </Box> : 
