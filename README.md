@@ -1,7 +1,9 @@
 A binary option dapp with no option expiration, but reward depends on every hours passed from option written and the price change from striking price. Uses chainlink price oracle.
 
 view dapp at https://binaryoptionsdapp.on.fleek.co/
+
 view contract at https://dashboard.tenderly.co/contract/goerli/0x201aa3679d977b77fdcfe28748ea34d48555b892/source
+
 view at etherscan https://goerli.etherscan.io/address/0x201aa3679d977b77fdcfe28748ea34d48555b892
 
 view collection at https://testnets.opensea.io/collection/marvel-teams-v4-1
