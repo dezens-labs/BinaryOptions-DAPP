@@ -1,10 +1,10 @@
 import React from 'react'
 import {  FaGithub, FaHammer, FaTwitter } from 'react-icons/fa';
 
-const Footer = () => {
+const Footer = (props) => {
  
   return (
-    <div className= 'footermove' >
+    <div className= { props.CurrentAccount ? 'footermove' :'fdontmove'} >
        <h2 > 
        <FaHammer className='hammer'/>&nbsp;  by &nbsp;
           <a href="https://twitter.com/nuthan_2x" target="_blank" rel="noopener noreferrer"className='footermoveh2'>nuthan_2x  </a> &nbsp;

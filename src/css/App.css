@@ -107,10 +107,29 @@ body{
   font-size: larger;
   text-decoration: none;
   font-size: 1.25rem;
-  
-
 }
 .footermove h2{
+  padding-bottom: 12px;
+  color: white;
+}
+
+.fdontmove{
+  text-align: center;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border-top: 2px solid rgb(255, 255, 255);
+  font-weight: normal;
+  font-size: 0.61rem;
+  top: 650px;
+}
+.fdontmove a{
+  font-size: larger;
+  text-decoration: none;
+  font-size: 1.25rem;
+}
+.fdontmove h2{
   padding-bottom: 12px;
   color: white;
 }
@@ -351,6 +370,8 @@ body{
   align-items: center;
   padding-left: 15.0px;
   margin-right: 4px;
+  font-family: monospace;
+  font-weight: bold;
 }
 .short{
  background-color: rgb(221, 117, 103); 
@@ -358,6 +379,8 @@ body{
   align-items: center;
   padding-left: 15.0px;
   margin-left: 4px;
+  font-family: monospace;
+  font-weight: bold;
 }
 .long :active{
   background-color: rgb(118, 232, 110);

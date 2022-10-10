@@ -68,7 +68,7 @@ function App() {
       
       { width > 500  && 
         <footer>
-          <Footer />
+          <Footer CurrentAccount={CurrentAccount}/>
         </footer>
       }
 
