@@ -430,3 +430,11 @@ label{
   text-decoration: none;
   margin-left: 7%;
 }
+
+.switchnetwork{
+  padding: 8px 12px;
+  font-family: monospace;
+  margin-left: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
