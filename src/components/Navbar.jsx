@@ -36,8 +36,11 @@ const Navbar = (props) => {
   }
 
   window.onload = () => {
-    if(window.ethereum !== "undefined") {
-      window.ethereum.on("accountsChanged",handleaccountschanged);
+    const { ethereum } = window;
+
+    if(ethereum) {
+      console.log(ethereum);
+      ethereum.on('accountsChanged',handleaccountschanged);
     }
   }
 

@@ -15,15 +15,9 @@ const BetCard = (props) => {
   }, [props.isETHchosen]);
 
   const ETHchosen = props.isETHchosen ; //false if WBTC chosen
-  // const CurrentAccount = props.CurrentAccount;
+  // const CurrentAccount = props.CurrentAccount; Web3Provider(window.ethereum)
+  
 
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
-  const signer = provider.getSigner();
-  console.log('signer: ', signer);
-  const BINOPTIONABI = BINOPTION;
-  const BOcontractaddr = "0x201aA3679D977b77FDCFe28748eA34d48555b892";
-  const BOcontract = new ethers.Contract(BOcontractaddr,BINOPTIONABI,signer)
-  // console.log('BOcontract: ', BOcontract);
 
   const pricesx = ()=> {
       Getprices()
@@ -52,6 +46,15 @@ const BetCard = (props) => {
   
 
   const newoption = async () => {
+    
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    console.log('signer: ', signer);
+    const BINOPTIONABI = BINOPTION;
+    const BOcontractaddr = "0x201aA3679D977b77FDCFe28748eA34d48555b892";
+    const BOcontract = new ethers.Contract(BOcontractaddr,BINOPTIONABI,signer)
+    // console.log('BOcontract: ', BOcontract);
+
     let amount = betinfo.amount;
     !betinfo.amount && alert('stake atleast 1 cent')
     amount > 10000 && alert("maximum stake only $10,000")
