@@ -88,10 +88,11 @@ export default function BasicTable(props) {
 
   function secondsToh(seconds) {
     seconds = Number(seconds);
-    var h = Math.floor(seconds % (3600*24) / 3600);
+    var h = Math.floor(seconds  / 3600);
     var hDisplay = h > 0 ? h + (h == 1 ? " hr" : " hrs") : "";
     return hDisplay ;
   }
+  // % (3600*24)
 
   const settleoption = async (id) => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -102,7 +103,7 @@ export default function BasicTable(props) {
     try {
       const closeoption = await BOcontract.settleOption(JSON.stringify(id));
       console.log(closeoption);
-      let receipt = await closeoption.wait();
+      let receipt = await closeoption.wait(); 
       console.log('receipt: ', receipt);
       getaccountdata();
     } catch(error) {
